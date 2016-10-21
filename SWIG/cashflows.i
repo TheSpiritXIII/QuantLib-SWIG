@@ -795,6 +795,18 @@ class CashFlows {
                       Real accuracy = 1.0e-10,
                       Size maxIterations = 10000,
                       Rate guess = 0.05);
+    template <typename Solver>
+    static Rate yield(const Leg&,
+                      Real npv,
+                      const DayCounter& dayCounter,
+                      Compounding compounding,
+                      Frequency frequency,
+                      bool includeSettlementDateFlows,
+                      Date settlementDate = Date(),
+                      Date npvDate = Date(),
+                      Real accuracy = 1.0e-10,
+                      Size maxIterations = 10000,
+                      Rate guess = 0.05);
     static Time duration(const Leg&,
                          const InterestRate&,
                          Duration::Type type,
@@ -856,5 +868,12 @@ class CashFlows {
 
 };
 
+%template(yieldBisectionSolver) CashFlows::yield<Bisection>;
+%template(yieldBrentSolver) CashFlows::yield<Brent>;
+%template(yieldFalsePositionSolver) CashFlows::yield<FalsePosition>;
+%template(yieldNewtonSolver) CashFlows::yield<Newton>;
+%template(yieldNewtonSafeSolver) CashFlows::yield<NewtonSafe>;
+%template(yieldRidderSolver) CashFlows::yield<Ridder>;
+%template(yieldSecantSolver) CashFlows::yield<Secant>;
 
 #endif

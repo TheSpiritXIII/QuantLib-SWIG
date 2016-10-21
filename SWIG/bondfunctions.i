@@ -245,6 +245,146 @@ class BondFunctions {
                         maxIterations,
                         guess);
         }
+        static Rate yieldBisectionSolver(const BondPtr& bond,
+                          Real cleanPrice,
+                          const DayCounter& dayCounter,
+                          Compounding compounding,
+                          Frequency frequency,
+                          Date settlementDate = Date(),
+                          Real accuracy = 1.0e-10,
+                          Size maxIterations = 100,
+                          Rate guess = 0.05) {
+            return QuantLib::BondFunctions::yield<Bisection>(
+                        *(boost::dynamic_pointer_cast<Bond>(bond)),
+                        cleanPrice,
+                        dayCounter,
+                        compounding,
+                        frequency,
+                        settlementDate,
+                        accuracy,
+                        maxIterations,
+                        guess);
+        }
+        static Rate yieldBrentSolver(const BondPtr& bond,
+                          Real cleanPrice,
+                          const DayCounter& dayCounter,
+                          Compounding compounding,
+                          Frequency frequency,
+                          Date settlementDate = Date(),
+                          Real accuracy = 1.0e-10,
+                          Size maxIterations = 100,
+                          Rate guess = 0.05) {
+            return QuantLib::BondFunctions::yield<Brent>(
+                        *(boost::dynamic_pointer_cast<Bond>(bond)),
+                        cleanPrice,
+                        dayCounter,
+                        compounding,
+                        frequency,
+                        settlementDate,
+                        accuracy,
+                        maxIterations,
+                        guess);
+        }
+        static Rate yieldFalsePositionSolver(const BondPtr& bond,
+                          Real cleanPrice,
+                          const DayCounter& dayCounter,
+                          Compounding compounding,
+                          Frequency frequency,
+                          Date settlementDate = Date(),
+                          Real accuracy = 1.0e-10,
+                          Size maxIterations = 100,
+                          Rate guess = 0.05) {
+            return QuantLib::BondFunctions::yield<FalsePosition>(
+                        *(boost::dynamic_pointer_cast<Bond>(bond)),
+                        cleanPrice,
+                        dayCounter,
+                        compounding,
+                        frequency,
+                        settlementDate,
+                        accuracy,
+                        maxIterations,
+                        guess);
+        }
+        static Rate yieldNewtonSolver(const BondPtr& bond,
+                          Real cleanPrice,
+                          const DayCounter& dayCounter,
+                          Compounding compounding,
+                          Frequency frequency,
+                          Date settlementDate = Date(),
+                          Real accuracy = 1.0e-10,
+                          Size maxIterations = 100,
+                          Rate guess = 0.05) {
+            return QuantLib::BondFunctions::yield<Newton>(
+                        *(boost::dynamic_pointer_cast<Bond>(bond)),
+                        cleanPrice,
+                        dayCounter,
+                        compounding,
+                        frequency,
+                        settlementDate,
+                        accuracy,
+                        maxIterations,
+                        guess);
+        }
+        static Rate yieldNewtonSafeSolver(const BondPtr& bond,
+                          Real cleanPrice,
+                          const DayCounter& dayCounter,
+                          Compounding compounding,
+                          Frequency frequency,
+                          Date settlementDate = Date(),
+                          Real accuracy = 1.0e-10,
+                          Size maxIterations = 100,
+                          Rate guess = 0.05) {
+            return QuantLib::BondFunctions::yield<NewtonSafe>(
+                        *(boost::dynamic_pointer_cast<Bond>(bond)),
+                        cleanPrice,
+                        dayCounter,
+                        compounding,
+                        frequency,
+                        settlementDate,
+                        accuracy,
+                        maxIterations,
+                        guess);
+        }
+        static Rate yieldRidderSolver(const BondPtr& bond,
+                          Real cleanPrice,
+                          const DayCounter& dayCounter,
+                          Compounding compounding,
+                          Frequency frequency,
+                          Date settlementDate = Date(),
+                          Real accuracy = 1.0e-10,
+                          Size maxIterations = 100,
+                          Rate guess = 0.05) {
+            return QuantLib::BondFunctions::yield<Ridder>(
+                        *(boost::dynamic_pointer_cast<Bond>(bond)),
+                        cleanPrice,
+                        dayCounter,
+                        compounding,
+                        frequency,
+                        settlementDate,
+                        accuracy,
+                        maxIterations,
+                        guess);
+        }
+        static Rate yieldSecantSolver(const BondPtr& bond,
+                          Real cleanPrice,
+                          const DayCounter& dayCounter,
+                          Compounding compounding,
+                          Frequency frequency,
+                          Date settlementDate = Date(),
+                          Real accuracy = 1.0e-10,
+                          Size maxIterations = 100,
+                          Rate guess = 0.05) {
+            return QuantLib::BondFunctions::yield<Secant>(
+                        *(boost::dynamic_pointer_cast<Bond>(bond)),
+                        cleanPrice,
+                        dayCounter,
+                        compounding,
+                        frequency,
+                        settlementDate,
+                        accuracy,
+                        maxIterations,
+                        guess);
+        }
         static Time duration(const BondPtr& bond,
                              const InterestRate& yield,
                              Duration::Type type = Duration::Modified,
